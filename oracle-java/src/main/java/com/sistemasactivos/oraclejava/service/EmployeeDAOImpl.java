@@ -118,8 +118,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             int success = cstmt.getInt(1);
             String errorMsg = cstmt.getString(13);
 
-            // Manejar los resultados
+            // Cerar la conexión
             cstmt.close();
+
             if (success == 1) {
                 return new SaveResult(true, "Empleado modificado exitosamente.");
             } else {
