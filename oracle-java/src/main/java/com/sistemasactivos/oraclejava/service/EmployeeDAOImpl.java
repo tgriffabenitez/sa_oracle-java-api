@@ -21,13 +21,13 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public List<Employee> getAll() {
-        String sql = "SELECT * FROM EMPLOYEES WHERE BAJA IS NULL";
+        String sql = "SELECT * FROM hr.EMPLOYEES WHERE BAJA IS NULL";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Employee.class));
     }
 
     @Override
     public Employee getEmployeeById(Long id) {
-        String sql = "SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID = ? AND BAJA IS NULL";
+        String sql = "SELECT * FROM hr.EMPLOYEES WHERE EMPLOYEE_ID = ? AND BAJA IS NULL";
         List<Employee> employees = jdbcTemplate.query(sql, new Object[]{id}, new BeanPropertyRowMapper<>(Employee.class));
         return employees.size() > 0 ? employees.get(0) : null;
     }
