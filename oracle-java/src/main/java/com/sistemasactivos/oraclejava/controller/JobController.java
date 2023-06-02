@@ -32,7 +32,7 @@ public class JobController {
         return new ResponseEntity<>(saveResult.getMessage(), saveResult.getSuccess() ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("")
     public ResponseEntity<?> update(@RequestBody Job job) {
         SaveResult saveResult = jobDAO.update(job);
         return new ResponseEntity<>(saveResult.getMessage(), saveResult.getSuccess() ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
