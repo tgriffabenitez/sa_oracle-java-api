@@ -22,13 +22,13 @@ public class JobDAOImpl implements JobDAO {
 
     @Override
     public List<Job> getAll() {
-        String sql = "SELECT * FROM JOBS WHERE BAJA IS NULL";
+        String sql = "SELECT * FROM hr.JOBS WHERE BAJA IS NULL";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Job.class));
     }
 
     @Override
     public Job getJobById(String id) {
-        String sql = "SELECT * FROM JOBS WHERE JOB_ID = ? AND BAJA IS NULL";
+        String sql = "SELECT * FROM hr.JOBS WHERE JOB_ID = ? AND BAJA IS NULL";
         List<Job> jobs = jdbcTemplate.query(sql, new Object[]{id}, new BeanPropertyRowMapper<>(Job.class));
         return jobs.size() > 0 ? jobs.get(0) : null;
     }
